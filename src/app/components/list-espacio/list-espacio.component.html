@@ -1,1 +1,56 @@
-<p>list-espacio works!</p>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<div class="table-wrapper">
+  <div class="row">
+      <div class="col-lg-6">
+          <H2>LISTADO EMPLEADOS</H2>
+      </div>
+
+      <div class="col-lg-6" style="text-align: right;">
+          <button mat-raised-button color="primary" routerLink="/add">Agregar nuevo espacio</button>
+      </div>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Piso </th>
+          <td mat-cell *matCellDef="let element"> {{element.piso}} </td>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> Numero </th>
+          <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+  </table>
+</div>

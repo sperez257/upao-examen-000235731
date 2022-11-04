@@ -1,3 +1,4 @@
+import { NewEspacioComponent } from './components/new-espacio/new-espacio.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,8 @@ import { ListEspacioComponent } from './components/list-espacio/list-espacio.com
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ListEspacioComponent
+    ListEspacioComponent,
+    NewEspacioComponent
   ],
   imports: [
     BrowserModule,
